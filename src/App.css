@@ -1,7 +1,22 @@
+body {
+  background-color: #737a92;
+}
+
+.btc-logo{
+  height: 100px;
+  width: 300px;
+  position: fixed;
+  left: 50%;
+  /* top: 40px; */
+  transform: translate(-50%, 50%);
+
+}
+
+
 .creds{
-  position: relative;
+  position: fixed;
   top: 665px;
   font-size: 15px;
-  color: grey;
+  color: rgb(63, 63, 63);
   left: 10px;
 }
