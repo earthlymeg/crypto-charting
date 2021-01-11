@@ -28,9 +28,10 @@ body {
 
 .chart{
   height: 400px;
-  width: 400px;
-  position: fixed;
+  width: 700px;
+  position: relative;
   left: 50%;
   transform: translate(-50%, 180px);
   color: white;
+  
 }

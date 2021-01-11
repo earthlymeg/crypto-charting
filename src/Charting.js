@@ -1,25 +1,34 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import axios from 'axios';
 import Chart from "chart.js";
 //import classes from "./LineGraph.module.css";
 
-const Charting = () => {
+const Charting = (props) => {
   
+    const [dates, setDates] = useState([]);
+    const [prices, setPrices] = useState([]);
+
+
     const chartRef = React.createRef();
     
     useEffect( () => {
+        
+        setDates(props.dates);
+        setPrices(props.prices);
         const myChartRef = chartRef.current.getContext("2d");
         
         new Chart(myChartRef, {
             type: "line",
             data: {
                 //Bring in data
-                labels: ["Jan", "Feb", "March"],
+                labels: dates,
                 datasets: [
                     {
-                        label: "Sales",
-                        data: [86, 67, 91],
+                        label: "Prices",
+                        data: prices,
                         backgroundColor:'white',
+                        borderColor: 'white',
+                        fill: 'false'
                     }
                 ]
             },
@@ -28,16 +37,6 @@ const Charting = () => {
             }
         });
     })
-    
-    
-    
-    
-    
-    const getData = () => {
-      axios.get('http://localhost:3001/current')
-      .then(res => console.log(res.data))
-      .catch(err => console.log(err))
-    }
 
 
     return (
